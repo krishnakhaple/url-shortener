@@ -1,0 +1,42 @@
+.logindiv{
+    height: 100%;
+    width: 100%;
+    margin: 5%;  
+    
+}
+
+.logindiv form{
+    height: 200%;
+    width: 100%;
+     margin: 5%;  
+    
+}
+
+label{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-right: 14%;
+    
+}
+
+.logindiv form input{
+    margin-top: 7%;
+}
+
+
+.logindiv #emailid input{
+   color: white;
+}
+
+.logindiv #passid input{
+   color: white;
+   margin-right:10% ;
+}
+
+.logindiv form button{
+    margin: 10%;
+}
+
+.forgotpassword{
+    display: inline-block;
+    margin-left: 10%;
+}

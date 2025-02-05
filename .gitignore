@@ -1,0 +1,24 @@
+# Node.js (Frontend)
+node_modules/
+build/
+
+# Java / Spring Boot (Backend)
+target/
+*.log
+*.class
+*.jar
+*.war
+*.ear
+.idea/
+.vscode/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# IDEs
+*.iml
+.idea/
+
+# Other potential files to ignore
+.env

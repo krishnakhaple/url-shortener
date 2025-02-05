@@ -1,0 +1,16 @@
+.container form div{
+    display: inline-block;
+    margin-top: 8%;
+}
+
+
+.container form div label{
+ display: inline;
+ margin: 0%;
+}
+
+.container form div input{
+    margin-top: 3%;
+}
+
+
