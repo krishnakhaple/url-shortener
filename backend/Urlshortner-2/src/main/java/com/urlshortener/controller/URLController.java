@@ -48,14 +48,6 @@ public class URLController {
         
         
          System.out.println("the  user from front end is id :"+userId);
-         
-       // String userIdParam = request.get("user_id");
-       // Long userId=(userIdParam!=null && !userIdParam.isEmpty()?Long.parseLong(userIdParam):null);
-       // Long userId = request.containsKey("userId") ? Long.parseLong(request.get("userId")) : null;
-        
-     //   Long userId=  (Long) model.getAttribute("user_id");
-        
-        //System.out.println("model userid is :"+userId);
 
         String shortUrl = urlService.generateShortUrl(originalUrl, userId);
         return ResponseEntity.ok(baseUrl+"/url/"+shortUrl);
