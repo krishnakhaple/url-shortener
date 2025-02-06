@@ -11,7 +11,7 @@ A full-stack URL shortener application with a React frontend and Spring Boot bac
 ## Tech Stack
 - **Frontend**: React.js
 - **Backend**: Spring Boot
-- **Database**: H2 (or MySQL/other, depending on your setup)
+- **Database**:  MySQL 
 
 ## Getting Started
 
