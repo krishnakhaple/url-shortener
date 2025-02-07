@@ -1,0 +1,48 @@
+name: Build and Test
+'on':
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+      - name: Build the backend project
+        run: >
+          cd backend  # Change to the backend directory
+
+          ./mvnw clean install  # Build the backend (adjust if using different
+          build tool)
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+      - name: Install frontend dependencies
+        run: |
+          cd frontend  # Change to the frontend directory
+          npm install  # Install frontend dependencies
+      - name: Build the frontend
+        run: |
+          cd frontend  # Change to the frontend directory
+          npm run build  # Build the frontend with Vite
+      - name: Run backend tests
+        run: >
+          cd backend  # Change to the backend directory
+
+          ./mvnw test  # Run the backend tests (adjust if using a different test
+          framework)
+      - name: Run frontend tests
+        run: >
+          cd frontend  # Change to the frontend directory
+
+          npm run test  # Run frontend tests (adjust if using a different test
+          framework)
+      - name: Check test results
+        run: |
+          if [ $? -ne 0 ]; then exit 1; fi  # Exit if any tests fail
