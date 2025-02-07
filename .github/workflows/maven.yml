@@ -42,8 +42,7 @@ jobs:
       # Build the backend with Maven
       - name: Build backend with Maven
         run: |
-          cd backend/Urlshortner-2  # Navigate to the correct backend directory
-          mvn -B package --file pom.xml  # Run Maven build in the backend directory
+          mvn test --file backend/Urlshortner-2/pom.xml
 
       # Run backend tests
       - name: Run backend tests
