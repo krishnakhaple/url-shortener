@@ -42,21 +42,19 @@ jobs:
       # Build the backend with Maven
       - name: Build backend with Maven
         run: |
-          cd backend/Urlshortner-2
-          mvn -B package
+          mvn -B package --file backend/Urlshortner-2/pom.xml
 
       # Run backend tests
       - name: Run backend tests
         run: |
-          cd backend/Urlshortner-2
-          mvn test  # Run backend tests
+          mvn test --file backend/Urlshortner-2/pom.xml
 
       # Cache Node.js modules (for frontend)
       - name: Cache Node.js modules
         uses: actions/cache@v2
         with:
           path: ~/.npm  # Cache npm modules
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('frontend/package-lock.json') }}
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('frontend/my-url-shortener/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-modules-
 
