@@ -27,7 +27,7 @@ jobs:
 
     # Build the Spring Boot backend with Maven
     - name: Build backend with Maven
-      run: mvn -B package --file backend/pom.xml  # Adjust path to pom.xml if needed
+      run: mvn -B package --file backend/Urlshortner-2/pom.xml  # Adjust path to pom.xml if needed
 
     # Cache Node.js dependencies (for React + Vite frontend)
     - name: Cache Node.js modules
