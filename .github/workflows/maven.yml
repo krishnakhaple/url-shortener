@@ -69,20 +69,17 @@ jobs:
       # Install frontend dependencies (React + Vite)
       - name: Install frontend dependencies
         run: |
-          cd frontend  # Navigate to frontend directory
-          npm install  # Install frontend dependencies
+          npm install --prefix frontend/my-url-shortener
 
       # Build the frontend with Vite
       - name: Build frontend with Vite
         run: |
-          cd frontend  # Navigate to frontend directory
-          npm run build  # Build the frontend with Vite
+          npm run build --prefix frontend/my-url-shortener
 
       # Run frontend tests (if applicable)
       - name: Run frontend tests
         run: |
-          cd frontend  # Navigate to frontend directory
-          npm run test  # Run frontend tests
+          npm run test --prefix frontend/my-url-shortener
 
       # Optional: Upload the Maven dependency graph to GitHub for Dependabot
       - name: Update Maven dependency graph
