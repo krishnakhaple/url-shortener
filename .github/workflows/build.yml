@@ -17,12 +17,12 @@ jobs:
     - name: Set up Java
       uses: actions/setup-java@v2
       with:
-        java-version: '17'  # Specify the Java version for your backend project
+        java-version: '17'  # Specify the Java version for your Spring Boot project
 
     - name: Build the backend project
       run: |
         cd backend  # Navigate to the backend directory
-        ./mvnw clean install  # Build the backend project (using Maven)
+        ./mvnw clean install  # Build the backend project using Maven
 
     # Set up Node.js for the frontend (React + Vite)
     - name: Set up Node.js
@@ -38,18 +38,18 @@ jobs:
     - name: Build the frontend
       run: |
         cd frontend  # Navigate to the frontend directory
-        npm run build  # Build the frontend with Vite
+        npm run build  # Build the frontend with Vite (Ensure Vite build is correctly set)
 
     - name: Run backend tests
       run: |
         cd backend  # Navigate to the backend directory
-        ./mvnw test  # Run the backend tests
+        ./mvnw test  # Run the backend tests using Maven
 
     - name: Run frontend tests
       run: |
         cd frontend  # Navigate to the frontend directory
-        npm run test  # Run frontend tests using your configured test command
+        npm run test  # Run frontend tests using the test command set in package.json
 
     - name: Check test results
       run: |
-        if [ $? -ne 0 ]; then exit 1; fi  # Exit if any tests fail
+        if [ $? -ne 0 ]; then exit 1; fi  # Exit with error if any tests fail
