@@ -42,12 +42,13 @@ jobs:
       # Build the backend with Maven
       - name: Build backend with Maven
         run: |
-          mvn test --file backend/Urlshortner-2/pom.xml
+          cd backend/Urlshortner-2
+          mvn -B package
 
       # Run backend tests
       - name: Run backend tests
         run: |
-          cd backend  # Navigate to backend directory
+          cd backend/Urlshortner-2
           mvn test  # Run backend tests
 
       # Cache Node.js modules (for frontend)
