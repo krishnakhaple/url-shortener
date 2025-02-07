@@ -2,15 +2,14 @@ name: Build and Test
 
 on:
   push:
-    branches: 
+    branches:
       - master  # Trigger on push to master branch
   pull_request:
-    branches: 
+    branches:
       - master  # Trigger on PRs to master branch
 
 jobs:
   build:
-
     runs-on: ubuntu-latest  # Use the latest Ubuntu runner
 
     steps:
@@ -27,14 +26,14 @@ jobs:
 
     # Build the Spring Boot backend with Maven
     - name: Build backend with Maven
-      run: mvn -B package --file backend/Urlshortner-2/pom.xml  # Adjust path to pom.xml if needed
+      run: mvn -B package --file backend/Urlshortner-2/pom.xml  # Path to backend pom.xml
 
     # Cache Node.js dependencies (for React + Vite frontend)
     - name: Cache Node.js modules
       uses: actions/cache@v2
       with:
         path: ~/.npm  # Cache npm modules
-        key: ${{ runner.os }}-node-modules-${{ hashFiles('frontend/package-lock.json') }}  # Use package-lock.json to cache dependencies
+        key: ${{ runner.os }}-node-modules-${{ hashFiles('frontend/my-url-shortener/package-lock.json') }}  # Path to package-lock.json
         restore-keys: |
           ${{ runner.os }}-node-modules-
 
@@ -47,26 +46,26 @@ jobs:
     # Install frontend dependencies (React + Vite)
     - name: Install frontend dependencies
       run: |
-        cd frontend  # Navigate to the frontend directory
+        cd frontend/my-url-shortener  # Navigate to the frontend directory
         npm install  # Install frontend dependencies
 
     # Build the frontend using Vite
     - name: Build frontend with Vite
       run: |
-        cd frontend  # Navigate to the frontend directory
+        cd frontend/my-url-shortener  # Navigate to the frontend directory
         npm run build  # Build the frontend with Vite
 
     # Run backend tests
     - name: Run backend tests
       run: |
-        cd backend  # Navigate to the backend directory
+        cd backend/Urlshortner-2  # Navigate to the backend directory
         mvn test  # Run backend tests using Maven
 
     # Run frontend tests (if applicable)
     - name: Run frontend tests
       run: |
-        cd frontend  # Navigate to the frontend directory
-        npm run test  # Run frontend tests
+        cd frontend/my-url-shortener  # Navigate to the frontend directory
+        npm run test  # Run frontend tests (Jest or another framework)
 
     # Optional: Upload the Maven dependency graph to GitHub for Dependabot
     - name: Update Maven dependency graph
