@@ -7,6 +7,7 @@ import com.urlshortener.service.UserService;
 
 import jakarta.servlet.http.HttpSession;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -66,7 +67,7 @@ public class UserController {
 
     
     @PostMapping("/login")
-    public ResponseEntity<String> loginUser(@RequestBody User user,Model model) {
+    public ResponseEntity<Map<String,Long>> loginUser(@RequestBody User user,Model model) {
     	
 //        System.out.println("Attempting to log in with email: " + user.getEmail()); // Print incoming email
 //        
@@ -121,7 +122,7 @@ public class UserController {
        
         
 
-        return ResponseEntity.ok(userId.toString());
+        return ResponseEntity.ok(Collections.singletonMap("userId", userId));
     }
     
     @PostMapping("/logout")

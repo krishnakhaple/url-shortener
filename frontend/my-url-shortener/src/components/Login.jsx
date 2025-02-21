@@ -28,7 +28,8 @@ function Login() {
         { withCredentials: true }
       );
 
-      const userId = response.data; // Get userId from response
+      console.log(response.data)
+      const userId = response.data.userId; // Get userId from response
 
       if (userId==null) {
         // If response data is null, show error

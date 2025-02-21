@@ -14,12 +14,12 @@ const URLShortener = () => {
       setUserId(storedUserId);
     }
 
-    // Set a timer to remove userId from localStorage after 1 minute
+    // Set a timer to remove userId from localStorage after 5 minute
     const timer = setTimeout(() => {
       localStorage.removeItem("userId");
       setUserId(null); // Also clear the state
       console.log("userId removed from localStorage after 1 minute");
-    }, 20000); // 60000 ms = 1 minute
+    }, 300000); // 60000 ms = 1 minute
 
     // Cleanup the timer when the component unmounts
     return () => clearTimeout(timer);
